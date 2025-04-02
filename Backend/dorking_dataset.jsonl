@@ -1,0 +1,7 @@
+{"input": "Find login pages for a domain", "output": "inurl:login site:example.com"}
+{"input": "Find exposed admin panels", "output": "intitle:\"admin panel\" site:example.com"}
+{"input": "Find SQL injection vulnerabilities", "output": "\"sql syntax error\" site:example.com"}
+{"input": "Find exposed database files", "output": "ext:sql | ext:db site:example.com"}
+{"input": "Find unprotected login pages", "output": "inurl:admin login site:example.com"}
+{"input": "Find sensitive files exposed in public", "output": "ext:pdf | ext:txt site:example.com"}
+  
