@@ -18,7 +18,15 @@
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					query: `Create a Google hacking query to find information about: ${userQuery}. Only return the query in backticks, without any additional explanations.`
+					query: `Create a Google hacking query to find information about: ${userQuery}. 
+					- Only return Google Dork queries, no additional explanation or anything else.
+					- Response MUST be google hacking query.
+					- Format response in backticks like this:
+					
+					\`\`\`
+					\`<GOOGLE_DORK_QUERY>\`
+					\`\`\`
+					`
 				})
 			});
 
