@@ -1,10 +1,13 @@
-FROM deepseek-r1:7b
-SYSTEM "You are an expert in crafting advanced search queries."
-PARAMETER adapter "dorking_dataset.jsonl"
-TEMPLATE """
-You will receive a search-related query, and your job is to generate an advanced Google Dorking search query.
-Here are some example queries and responses that you learned from:
-{{input_data}}
-Now, generate a search query for: {{prompt}}
-"""
+FROM phi:latest
 
+# System message to define the AI's persona and task
+SYSTEM "You are Doorkie, an AI expert at crafting Google Dorking queries and advanced search queries for research and hacking."
+
+# Fine-tuning configuration for Google Dorking queries
+# ADAPTER "dorking_dataset.jsonl"
+
+# Optional parameters for inference
+PARAMETER top_k 100
+PARAMETER top_p 0.92
+PARAMETER mirostat_eta 0.3
+PARAMETER temperature 0.7

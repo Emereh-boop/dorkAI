@@ -1,7 +1,47 @@
-{"input": "Find login pages for a domain", "output": "inurl:login site:example.com"}
-{"input": "Find exposed admin panels", "output": "intitle:\"admin panel\" site:example.com"}
-{"input": "Find SQL injection vulnerabilities", "output": "\"sql syntax error\" site:example.com"}
-{"input": "Find exposed database files", "output": "ext:sql | ext:db site:example.com"}
-{"input": "Find unprotected login pages", "output": "inurl:admin login site:example.com"}
-{"input": "Find sensitive files exposed in public", "output": "ext:pdf | ext:txt site:example.com"}
-  
+{"prompt": "Find login pages for a domain", "response": "inurl:login site:example.com"}
+{"prompt": "Find exposed admin panels", "response": "intitle:\"admin panel\" site:example.com"}
+{"prompt": "Find SQL injection vulnerabilities", "response": "\"sql syntax error\" site:example.com"}
+{"prompt": "Find exposed database files", "response": "ext:sql | ext:db site:example.com"}
+{"prompt": "Find unprotected login pages", "response": "inurl:admin login site:example.com"}
+{"prompt": "Find sensitive files exposed in public", "response": "ext:pdf | ext:txt site:example.com"}
+{"prompt": "I need to find papers on machine learning applied to healthcare.", "response": "site:pubmed.ncbi.nlm.nih.gov machine learning healthcare"}
+{"prompt": "Find exposed databases related to employee records.", "response": "filetype:xls site:pastebin.com employee records"}
+{"prompt": "I need data for public government reports on climate change.", "response": "site:.gov filetype:pdf climate change reports"}
+{"prompt": "Find IP addresses exposed in URLs.", "response": "inurl:http://ip address"}
+{"prompt": "Search for exposed login pages with weak passwords.", "response": "inurl:admin intitle:login"}
+{"prompt": "Find articles and papers about data science in social media analysis.", "response": "site:arxiv.org data science social media"}
+{"prompt": "Search for personal data leaks in online databases.", "response": "filetype:xls site:pastebin.com personal data"}
+{"prompt": "I want to scrape job listings for data scientists.", "response": "inurl:jobs intitle:data scientist"}
+{"prompt": "Find exposed data in public directories for public research.", "response": "inurl:/admin intitle:directory"}
+{"prompt": "Find academic articles on quantum computing.", "response": "site:scholar.google.com quantum computing"}
+{"prompt": "I need a Google Dork to find open FTP servers.", "response": "inurl:ftp:// intitle:Welcome"}
+{"prompt": "Search for open directories with public access to music files.", "response": "intitle:index.of mp3"}
+{"prompt": "Find exposed private login credentials for social media platforms.", "response": "site:pastebin.com inurl:login credentials"}
+{"prompt": "Search for hidden pages on e-commerce websites that might contain sensitive information.", "response": "inurl:/hidden intitle:admin"}
+{"prompt": "Search for publicly accessible medical data.", "response": "site:archive.org medical data"}
+{"prompt": "Search for exposed MongoDB databases on public servers.", "response": "inurl:mongodb:// inurl:27017"}
+{"prompt": "Find academic research articles on artificial intelligence in healthcare.", "response": "site:pubmed.ncbi.nlm.nih.gov artificial intelligence healthcare"}
+{"prompt": "I need to find exposed Cloudflare servers in search results.", "response": "inurl:cloudflare intitle:server"}
+{"prompt": "Search for vulnerabilities in software development platforms.", "response": "inurl:gitlab intitle:repository"}
+{"prompt": "Find open administrative panels of online databases.", "response": "inurl:admin intitle:panel"}
+{"prompt": "Search for exposed payment gateway information from e-commerce sites.", "response": "site:pastebin.com payment gateway"}
+{"prompt": "Search for security flaws in outdated CMS systems.", "response": "inurl:wp-login.php intitle:admin"}
+{"prompt": "Find information about government research on climate change.", "response": "site:.gov climate change research"}
+{"prompt": "Search for publicly available academic research on cybersecurity.", "response": "site:arxiv.org cybersecurity research"}
+{"prompt": "Search for exposed servers in data centers.", "response": "inurl:server inurl:/data center"}
+{"prompt": "Search for exposed personal data from university databases.", "response": "site:edu student data"}
+{"prompt": "Search for vulnerabilities in online e-commerce platforms.", "response": "inurl:/admin intitle:login"}
+{"prompt": "Find public financial records for public figures.", "response": "site:gov financial records"}
+{"prompt": "Search for potential data breaches in credit card companies.", "response": "site:pastebin.com credit card breach"}
+{"prompt": "Search for public government contracts for research purposes.", "response": "site:.gov inurl:contracts"}
+{"prompt": "Find reports on open-source software vulnerabilities.", "response": "site:github.com open source vulnerabilities"}
+{"prompt": "Find exposed login forms on educational websites.", "response": "inurl:login intitle:edu"}
+{"prompt": "Search for security vulnerabilities in outdated Linux servers.", "response": "inurl:linux intitle:vulnerabilities"}
+{"prompt": "Find exposed PDF documents on government websites.", "response": "site:.gov filetype:pdf exposed"}
+{"prompt": "Search for sensitive data leaks on public forums.", "response": "site:forum.com filetype:xls data leak"}
+{"prompt": "Find publicly available research articles on internet privacy.", "response": "site:scholar.google.com internet privacy research"}
+{"prompt": "Search for server configurations that might expose sensitive data.", "response": "intitle:config server expose"}
+{"prompt": "Search for data leakage in cloud databases.", "response": "inurl:cloud data leakage"}
+{"prompt": "Search for security vulnerabilities in IoT devices.", "response": "inurl:iot intitle:vulnerabilities"}
+{"prompt": "Find subdomains of example.com", "response": "site:example.com -www"}
+{"prompt": "Locate files with sensitive information on a specific website", "response": "site:example.com filetype:pdf OR filetype:doc confidential"}  

@@ -11,54 +11,45 @@
 	let isLoading = false; // Track loading state
 
 	async function generateDork() {
-	isLoading = true;
-	generatedDork = ''; // Clear previous result
-	try {
-		const res = await fetch('/api/ollama-generate', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				query: `Create a Google hacking query to find information about: ${userQuery}. 
-				**Output Format:**
-				- No explanations.
-				- Just return the Google Dorking query inside backticks (\`).
-				- The response must follow this pattern:
-				
-				\`\`\`
-				\`<GOOGLE_DORK_QUERY>\`
-				\`\`\`
-				`
-			})
-		});
+		isLoading = true;
+		generatedDork = ''; // Clear previous result
+		try {
+			const res = await fetch('/api/ollama-generate', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({
+					query: `Create a Google hacking query to find information about: ${userQuery}. Only return the query in backticks, without any additional explanations.`
+				})
+			});
 
-		if (res.ok) {
-			const data = await res.json();
-			console.log('Ollama Raw Response:', data);
+			if (res.ok) {
+				const data = await res.json();
+				// console.log('Ollama Raw Response:', data);
 
-			// Ensure `data.answer` exists
-			const rawResponse = data.answer || 'No valid response received';
+				// // Ensure `data.answer` exists
+				// const rawResponse = data.answer || 'No valid response received';
 
-			// Remove any HTML/XML-style tags
-			const cleanedResponse = rawResponse.replace(/<[^>]+>/g, '').trim();
-			console.log('Cleaned Response:', cleanedResponse);
+				// // Remove any HTML/XML-style tags
+				// const cleanedResponse = rawResponse.replace(/<[^>]+>/g, '').trim();
+				// console.log('Cleaned Response:', cleanedResponse);
 
-			// Extract content inside backticks
-			const match = cleanedResponse.match(/`([^`]+)`/);
-			generatedDork = match ? match[1] : 'No query generated, please retry';
+				// // Extract content inside backticks
+				// const match = cleanedResponse.match(/`([^`]+)`/);
+				// generatedDork = match ? match[1] : 'No query generated, please retry';
+				generatedDork = data ? data.answer : 'No query generated, please retry';
 
-			console.log('Generated Dork:', generatedDork);
-		} else {
-			console.error('Error in response:', res.statusText);
+				console.log('Generated Dork:', generatedDork);
+			} else {
+				console.error('Error in response:', res.statusText);
+				generatedDork = 'Error generating dork';
+			}
+		} catch (error) {
+			console.error('Error fetching dork:', error);
 			generatedDork = 'Error generating dork';
+		} finally {
+			isLoading = false;
 		}
-	} catch (error) {
-		console.error('Error fetching dork:', error);
-		generatedDork = 'Error generating dork';
-	} finally {
-		isLoading = false;
 	}
-}
-
 
 	async function search() {
 		const query = generatedDork;
@@ -123,11 +114,10 @@
 	<p class="font-medium">Generated Query:</p>
 	<input
 		type="text"
-		class="mb-3 w-full rounded-full border-0 border-gray-300 bg-gray-50 p-3 text-gray-800 focus:ring-0 focus:ring-blue-400"
+		class="mb-3 w-full rounded-full border-0 border-gray-300 bg-gray-50 p-3 text-xs text-gray-800 focus:ring-0 focus:ring-blue-400"
 		placeholder="AI-generated query will appear here"
 		bind:value={generatedDork}
 	/>
-	<p class="font-medium">{$aiResponse}</p>
 	<button
 		class="w-[100px] rounded-full bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-500 disabled:cursor-not-allowed"
 		disabled={!generatedDork}

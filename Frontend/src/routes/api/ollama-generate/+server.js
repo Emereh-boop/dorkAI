@@ -6,11 +6,11 @@ export async function POST({ request }) {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				model: 'deepseek-r1:7b', // Custom model
+				model: 'phi', // Custom model
 				prompt: query,
 				stream: false,
-				keepAlive: "30m",
-				system: "You are dorkie, an expert in crafting advanced search queries for researching and hacking"
+				// keepAlive: "30m",
+				// system: "You are dorkie, an expert in crafting advanced search queries for researching and hacking"
 			})
 		});
 
