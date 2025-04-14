@@ -6,7 +6,7 @@ export async function POST({ request }) {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				model: 'phi', // Custom model
+				model: 'phi4-mini', // Custom model
 				prompt: query,
 				stream: false,
 				// keepAlive: "30m",

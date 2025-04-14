@@ -74,7 +74,8 @@
 			placeholder="Find admin logins for government sites..."
 			on:focus={() => (advancedOpen = true)}
 			on:blur={() => setTimeout(() => (advancedOpen = false), 200)}
-		></textarea>{#if advancedOpen}
+		></textarea>
+		<!-- {#if advancedOpen}
 			<div
 				class="absolute bottom-full left-0 m-1 mt-1 w-64 rounded-md border border-gray-400 bg-white p-2 text-xs text-gray-700"
 			>
@@ -95,7 +96,7 @@
 					><X class="h-4 w-4" /></button
 				>
 			</div>
-		{/if}
+		{/if} -->
 	</div>
 
 	<div
